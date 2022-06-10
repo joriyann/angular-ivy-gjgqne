@@ -1,0 +1,39 @@
+<form [formGroup]="form">
+  <p>
+    <label>Nom</label>
+    <input formControlName="nom" />
+  </p>
+  <p>
+    <label>Prénom</label>
+    <input formControlName="prenom" />
+  </p>
+  <p>
+    <label>Date de naissance</label>
+    <input type="date" formControlName="dateNaissance" />
+  </p>
+
+  <ng-container *ngIf="visible">
+    <p>
+      <label>Secu</label>
+      <input formControlName="secu" />
+    </p>
+    <p>
+      <label>Adresse</label>
+      <input formControlName="adresse" />
+    </p>
+    <p>
+      <label>Code postal</label>
+      <input formControlName="codePostal" />
+    </p>
+    <p>
+      <label>Pays</label>
+      <input formControlName="pays" />
+    </p>
+  </ng-container>
+</form>
+
+<button type="button" (click)="toggled = !toggled">
+  Le bloc {{ toggled ? 'reste visible' : 'disparait' }}
+</button>
+
+{{ form.valid }} {{ form.value | json}}
